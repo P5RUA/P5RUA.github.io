@@ -1,3 +1,16 @@
+// Перевірка IP при завантаженні сторінки
+fetch('http://ip-api.com/json')
+    .then(response => response.json())
+    .then(data => {
+        if (data.countryCode === 'RU') {
+            document.body.innerHTML = '<img src="assets/idi.gif" style="width:100%;height:100%;position:fixed;top:0;left:0;z-index:9999;">';
+        }
+    })
+    .catch(error => {
+        console.error('Помилка при отриманні геолокації:', error);
+        // У разі помилки сайт просто завантажується як є
+    });
+
 // Модальне вікно для завантаження
 const downloadBtn = document.getElementById('downloadBtn');
 const platformModal = document.getElementById('platformModal');
