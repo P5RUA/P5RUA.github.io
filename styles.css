@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #fff; /* Глобальний білий текст */
+}
+
+/* Фон: зірки, що охоплюють увесь екран */
+.background-gif {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('assets/stars.gif') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+}
+
+/* Верхня частина з логотипом */
+.header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.logo {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+}
+
+/* Основний вміст */
+.content {
+  padding-top: 20px;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Кнопка завантаження */
+.download-btn {
+  background: linear-gradient(to right, #0077cc, #003d82);
+  color: #fff;
+  padding: 15px 50px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: background 0.3s;
+  border-radius: 5px;
+}
+
+.download-btn:hover {
+  background: linear-gradient(to right, #005fa3, #002966);
+}
+
+/* ---------- МОДАЛЬНІ ВІКНА ---------- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  color: #333;
+  margin: 15% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 5px;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #ff0000;
+}
+
+.platform-option {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding: 15px 30px;
+  background: linear-gradient(to right, #0077cc, #003d82);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.platform-option:hover {
+  background: linear-gradient(to right, #005fa3, #002966);
+}
+
+.platform-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+/* ---------- РАМКИ ДЛЯ РОЗДІЛІВ ---------- */
+
+/* Однакова ширина для обох рамок, щоб праві краї збігалися */
+.frame-slider,
+.frame-credits {
+  /* Напівпрозорий темний фон + біла обвідка */
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #fff;
+  border-radius: 10px;
+
+  /* Загальна ширина 1280 + відступи, щоб вміст (1280px) помістився всередині */
+  width: 1320px; 
+  margin: 20px auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ---------- ГАЛЕРЕЯ (СЕКЦІЯ ЗОБРАЖЕНЬ) ---------- */
+.gallery h2 {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.slider {
+  position: relative;
+  width: 1280px; 
+  height: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.slide.active {
+  display: block;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* ---------- СЕКЦІЯ "ПРИЧЕТНІ ДО ЛОКАЛІЗАЦІЇ" ---------- */
+.credits h2 {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.credits p {
+  margin: 10px 0;
+}
+
+/* ---------- ФУТЕР ---------- */
+footer {
+  color: #fff;
+  margin-top: 20px;
+}
+
+footer p {
+  margin: 20px 0;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+}
+
+/* ---------- МОДАЛЬНЕ ЗОБРАЖЕННЯ ---------- */
+/* Зменшуємо максимально можливий розмір, щоб не було повноекранного */
+.modal-image {
+  max-width: 80vw;
+  max-height: 80vh;
+  margin: 40px auto;
+  display: block;
+  object-fit: contain;
+  z-index: 1001;
+}
+
+/* ---------- АДАПТИВНІСТЬ ---------- */
+@media (max-width: 1320px) {
+  .frame-slider,
+  .frame-credits {
+    width: 90%; /* або будь-яке інше значення для мобільних */
+  }
+  .slider {
+    width: 100%;
+    height: auto;
+  }
+  .slide {
+    height: auto;
+  }
+}

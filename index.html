@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Українізатор для Persona 5 Royal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Фон: зірки на весь екран -->
+  <div class="background-gif"></div>
+
+  <!-- Верхня частина з логотипом -->
+  <header class="header">
+    <img src="assets/logo_p5r.png" alt="Логотип Persona 5 Royal" class="logo">
+  </header>
+
+  <!-- Основний вміст -->
+  <main class="content">
+    <div class="container">
+      <!-- Кнопка завантаження -->
+      <button id="downloadBtn" class="download-btn">Завантажити українізатор</button>
+
+      <!-- Модальне вікно для вибору платформи -->
+      <div id="platformModal" class="modal">
+        <div class="modal-content">
+          <span class="close">×</span>
+          <h2>Оберіть платформу</h2>
+          <a href="https://store.steampowered.com/app/1687950/Persona_5_Royal/" class="platform-option">
+            <img src="assets/ST.png" alt="Steam" class="platform-icon"> Steam (PC)
+          </a>
+          <a href="https://www.nintendo.com/us/store/products/persona-5-royal-switch/?srsltid=AfmBOorRwlMsjiNQljQTK_WC2HWr4Yvo3bUq2Moj65FOhFcSBRPDmTFQ" class="platform-option">
+            <img src="assets/NS.png" alt="Nintendo Switch" class="platform-icon"> Nintendo Switch
+          </a>
+        </div>
+      </div>
+
+      <!-- Рамка для слайдера -->
+      <div class="frame-slider">
+        <section class="gallery">
+          <h2>Зображення українізатора</h2>
+          <div class="slider">
+            <img src="assets/photo/1.jpg" alt="Зображення 1" class="slide active">
+            <img src="assets/photo/2.jpg" alt="Зображення 2" class="slide">
+            <img src="assets/photo/3.jpg" alt="Зображення 3" class="slide">
+            <button class="prev">←</button>
+            <button class="next">→</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Рамка для секції "Причетні до локалізації" -->
+      <div class="frame-credits">
+        <section class="credits">
+          <h2>Причетні до локалізації</h2>
+          <p>Дмитро Бидлов — Керівник «Солов'їної команди»</p>
+          <p>— Та інші (потім я сам доповню цей список у коді сайту).</p>
+        </section>
+      </div>
+
+      <!-- Футер -->
+      <footer>
+        <p>Демонстративна версія українізатора від %дата%.</p>
+        <div class="social-links">
+          <a href="https://youtube.com/@Solovina_UA">
+            <img src="assets/youtube.png" alt="YouTube" class="social-icon">
+          </a>
+          <a href="https://twitter.com/SolovinaUA">
+            <img src="assets/twitter.png" alt="Twitter" class="social-icon">
+          </a>
+          <a href="https://t.me/SolovinaUA">
+            <img src="assets/telegram.png" alt="Telegram" class="social-icon">
+          </a>
+        </div>
+      </footer>
+
+      <!-- Модальне вікно для зображень -->
+      <div id="imageModal" class="modal image-modal">
+        <span class="close">×</span>
+        <img id="modalImg" class="modal-image" src="">
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
