@@ -11,6 +11,7 @@ html {
 body {
   font-family: Arial, sans-serif;
   color: #fff; /* Глобальний білий текст */
+  font-size: 14px; /* Зменшено базовий розмір шрифту */
 }
 
 /* Фон: зірки, що охоплюють увесь екран */
@@ -28,24 +29,24 @@ body {
 /* Верхня частина з логотипом */
 .header {
   text-align: center;
-  padding: 20px 10px; /* Зменшено відступи */
+  padding: 10px 5px; /* Значно зменшено відступи */
 }
 
 .logo {
-  max-width: 400px; /* Зменшено максимальну ширину логотипу */
+  max-width: 250px; /* Зменшено максимальну ширину логотипу */
   width: 100%;
   height: auto;
 }
 
 /* Основний вміст */
 .content {
-  padding-top: 10px; /* Зменшено верхній відступ */
+  padding-top: 5px; /* Зменшено верхній відступ */
 }
 
 .container {
-  max-width: 1000px; /* Зменшено максимальну ширину контейнера */
+  max-width: 800px; /* Зменшено максимальну ширину контейнера */
   margin: 0 auto;
-  padding: 15px; /* Зменшено відступи */
+  padding: 10px; /* Зменшено відступи */
   text-align: center;
 }
 
@@ -53,13 +54,13 @@ body {
 .download-btn {
   background: linear-gradient(to right, #0077cc, #003d82);
   color: #fff;
-  padding: 10px 30px; /* Зменшено розмір кнопки */
-  font-size: 16px; /* Зменшено розмір шрифту */
+  padding: 8px 20px; /* Зменшено розмір кнопки */
+  font-size: 14px; /* Зменшено шрифт */
   border: none;
   cursor: pointer;
-  margin: 15px 0; /* Зменшено зовнішній відступ */
+  margin: 10px 0; /* Зменшено зовнішній відступ */
   transition: background 0.3s;
-  border-radius: 5px;
+  border-radius: 3px; /* Зменшено радіус */
 }
 
 .download-btn:hover {
@@ -81,16 +82,16 @@ body {
 .modal-content {
   background-color: #fff;
   color: #333;
-  margin: 15% auto;
-  padding: 15px; /* Зменшено відступи */
+  margin: 10% auto; /* Зменшено верхній відступ */
+  padding: 10px; /* Зменшено відступи */
   width: 90%;
-  max-width: 350px; /* Зменшено максимальну ширину */
-  border-radius: 5px;
+  max-width: 300px; /* Зменшено максимальну ширину */
+  border-radius: 3px;
 }
 
 .close {
   float: right;
-  font-size: 24px; /* Зменшено розмір */
+  font-size: 20px; /* Зменшено розмір */
   cursor: pointer;
 }
 
@@ -101,12 +102,12 @@ body {
 .platform-option {
   display: flex;
   align-items: center;
-  margin: 8px 0; /* Зменшено відступ */
-  padding: 10px 20px; /* Зменшено розмір */
+  margin: 5px 0; /* Зменшено відступ */
+  padding: 8px 15px; /* Зменшено розмір */
   background: linear-gradient(to right, #0077cc, #003d82);
   color: #fff;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 3px;
   transition: background 0.3s;
 }
 
@@ -115,34 +116,35 @@ body {
 }
 
 .platform-icon {
-  width: 40px; /* Зменшено розмір іконки */
-  height: 40px;
-  margin-right: 8px; /* Зменшено відступ */
+  width: 30px; /* Зменшено розмір іконки */
+  height: 30px;
+  margin-right: 5px; /* Зменшено відступ */
 }
 
 /* ---------- РАМКИ ДЛЯ РОЗДІЛІВ ---------- */
 .frame-slider,
 .frame-credits {
   background: rgba(0, 0, 0, 0.6);
-  border: 2px solid #fff;
-  border-radius: 10px;
-  max-width: 1000px; /* Зменшено максимальну ширину */
-  width: 100%; /* Адаптується до контейнера */
-  margin: 15px auto; /* Зменшено зовнішній відступ */
-  padding: 15px; /* Зменшено внутрішній відступ */
+  border: 1px solid #fff; /* Зменшено товщину рамки */
+  border-radius: 5px; /* Зменшено радіус */
+  max-width: 800px; /* Зменшено ширину */
+  width: 100%; /* Адаптивна ширина */
+  margin: 10px auto; /* Зменшено зовнішній відступ */
+  padding: 10px; /* Зменшено внутрішній відступ */
   box-sizing: border-box;
 }
 
 /* ---------- ГАЛЕРЕЯ (СЕКЦІЯ ЗОБРАЖЕНЬ) ---------- */
 .gallery h2 {
-  margin-bottom: 15px; /* Зменшено відступ */
+  margin-bottom: 10px; /* Зменшено відступ */
   color: #fff;
+  font-size: 18px; /* Зменшено розмір заголовка */
 }
 
 .slider {
   position: relative;
-  width: 100%; /* Змінено на відносну ширину */
-  height: auto; /* Автоматична висота для пропорційності */
+  width: 100%; /* Повна ширина */
+  height: auto; /* Автоматична висота */
   margin: 0 auto;
   overflow: hidden;
 }
@@ -150,7 +152,7 @@ body {
 .slide {
   display: none;
   width: 100%;
-  height: auto; /* Змінено на автоматичну висоту */
+  height: auto; /* Автоматична висота */
   object-fit: contain;
   cursor: pointer;
 }
@@ -166,65 +168,66 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
   border: none;
-  padding: 8px 12px; /* Зменшено розмір кнопок */
+  padding: 5px 10px; /* Зменшено розмір кнопок */
   cursor: pointer;
-  font-size: 18px; /* Зменшено шрифт */
+  font-size: 16px; /* Зменшено шрифт */
 }
 
 .prev {
-  left: 8px;
+  left: 5px;
 }
 
 .next {
-  right: 8px;
+  right: 5px;
 }
 
 /* ---------- СЕКЦІЯ "ПРИЧЕТНІ ДО ЛОКАЛІЗАЦІЇ" ---------- */
 .credits h2 {
-  margin-bottom: 15px; /* Зменшено відступ */
+  margin-bottom: 10px; /* Зменшено відступ */
   color: #fff;
+  font-size: 18px; /* Зменшено розмір заголовка */
 }
 
 .credits p {
-  margin: 8px 0; /* Зменшено відступ */
+  margin: 5px 0; /* Зменшено відступ */
 }
 
 /* ---------- ФУТЕР ---------- */
 footer {
   color: #fff;
-  margin-top: 15px; /* Зменшено відступ */
+  margin-top: 10px; /* Зменшено відступ */
 }
 
 footer p {
-  margin: 15px 0; /* Зменшено відступ */
+  margin: 10px 0; /* Зменшено відступ */
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 15px; /* Зменшено проміжок */
+  gap: 10px; /* Зменшено проміжок */
 }
 
 .social-icon {
-  width: 40px; /* Зменшено розмір іконок */
-  height: 40px;
+  width: 30px; /* Зменшено розмір іконок */
+  height: 30px;
 }
 
 /* ---------- МОДАЛЬНЕ ЗОБРАЖЕННЯ ---------- */
 .modal-image {
-  max-width: 80vw;
-  max-height: 80vh;
-  margin: 30px auto; /* Зменшено відступ */
+  max-width: 70vw; /* Зменшено максимальну ширину */
+  max-height: 70vh; /* Зменшено максимальну висоту */
+  margin: 20px auto; /* Зменшено відступ */
   display: block;
   object-fit: contain;
   z-index: 1001;
 }
 
 /* ---------- АДАПТИВНІСТЬ ---------- */
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
   .frame-slider,
   .frame-credits {
-    width: 90%; /* Зменшуємо ширину на менших екранах */
+    width: 90%;
   }
   .slider {
     width: 100%;
@@ -235,44 +238,52 @@ footer p {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .header {
-    padding: 15px 8px; /* Зменшено відступи */
+    padding: 8px 5px;
   }
   .logo {
-    max-width: 300px; /* Зменшено розмір логотипу */
+    max-width: 200px; /* Ще більше зменшено логотип */
   }
   .download-btn {
-    padding: 8px 25px; /* Зменшено розмір кнопки */
-    font-size: 14px; /* Зменшено шрифт */
+    padding: 6px 15px;
+    font-size: 12px;
   }
   .platform-icon {
-    width: 35px; /* Зменшено розмір іконки */
-    height: 35px;
+    width: 25px;
+    height: 25px;
   }
   .social-icon {
-    width: 35px; /* Зменшено розмір іконки */
-    height: 35px;
+    width: 25px;
+    height: 25px;
+  }
+  .gallery h2,
+  .credits h2 {
+    font-size: 16px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
   .header {
-    padding: 10px 5px; /* Зменшено відступи */
+    padding: 5px 3px;
   }
   .logo {
-    max-width: 200px; /* Зменшено розмір логотипу */
+    max-width: 150px; /* Максимально компактний логотип */
   }
   .download-btn {
-    padding: 6px 20px; /* Зменшено розмір кнопки */
-    font-size: 12px; /* Зменшено шрифт */
+    padding: 5px 10px;
+    font-size: 10px;
   }
   .platform-icon {
-    width: 30px; /* Зменшено розмір іконки */
-    height: 30px;
+    width: 20px;
+    height: 20px;
   }
   .social-icon {
-    width: 30px; /* Зменшено розмір іконки */
-    height: 30px;
+    width: 20px;
+    height: 20px;
+  }
+  .gallery h2,
+  .credits h2 {
+    font-size: 14px;
   }
 }
