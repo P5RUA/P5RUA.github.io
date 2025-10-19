@@ -112,3 +112,13 @@ img { max-width: 100%; display: block; }
 /* Footer */
 .site-footer { border-top: 1px solid rgba(255,255,255,0.08); background: #0a0a0a; padding: 24px 0; font-size: 14px; opacity: .9; }
 .footer-inner { text-align: center; }
+
+/* Auto-added for 2x2 video grid */
+.video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.videos-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.youtube-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.videoList{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.videosList{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+
+/* Auto-added: 2x2 grid for video list */
+#videos{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}

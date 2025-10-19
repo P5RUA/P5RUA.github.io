@@ -1,6 +1,6 @@
 {
   "download": {
-    "url": "https://example.com/p5r-ua-early-access.zip",
+    "url": "https://donatello.to/post/68e52efad9d669f534102b40/ukrayinizator-dlya-persona-5-royal-ranniy-dostup",
     "fileSize": "~250 МБ"
   },
   "progress": {
@@ -9,17 +9,21 @@
   },
   "demo": {
     "youtubeId": "dQw4w9WgXcQ",
-    "images": [
-      "/assets/screen-1.webp",
-      "/assets/screen-2.webp",
-      "/assets/screen-3.webp",
-      "/assets/screen-4.webp",
-      "/assets/screen-5.webp",
-      "/assets/screen-6.webp"
-    ]
+    "images": []
   },
   "team": [
-    { "role": "Керівництво / Менеджмент", "members": ["Дмитро Бидлов"] },
-    { "role": "Локалізація UI / Шрифти", "members": ["Микита", "Марія"] }
+    {
+      "role": "Керівництво / Менеджмент",
+      "members": [
+        "Дмитро Бидлов"
+      ]
+    },
+    {
+      "role": "Локалізація UI / Шрифти",
+      "members": [
+        "Микита",
+        "Марія"
+      ]
+    }
   ]
 }
