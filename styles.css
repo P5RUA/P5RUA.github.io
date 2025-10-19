@@ -1,289 +1,115 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-  font-family: Arial, sans-serif;
-  color: #fff; /* Глобальний білий текст */
-  font-size: 14px; /* Зменшено базовий розмір шрифту */
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #fff;
+  background: #000;
 }
 
-/* Фон: зірки, що охоплюють увесь екран */
+/* Stars background */
 .background-gif {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('assets/stars.gif') no-repeat center center;
-  background-size: cover;
-  z-index: -1;
+  position: fixed; inset: 0; z-index: -1;
+  background: url('assets/stars.gif') center/cover no-repeat;
+  filter: saturate(1.2) brightness(0.9);
 }
 
-/* Верхня частина з логотипом */
-.header {
-  text-align: center;
-  padding: 10px 5px; /* Значно зменшено відступи */
+/* Layout */
+.container { width: min(1100px, 92vw); margin: 0 auto; }
+.content { padding-top: 96px; }
+
+/* P5R stripes banner */
+.p5r-stripes {
+  --stripe: repeating-linear-gradient(-45deg, #000 0 10px, #fff 10px 20px, #ff1a1a 20px 30px, #000 30px 40px);
+  background: var(--stripe);
+  border-bottom: 4px solid #000;
+  box-shadow: 0 6px 0 #ff1a1a;
 }
 
-.logo {
-  max-width: 250px; /* Зменшено максимальну ширину логотипу */
-  width: 100%;
-  height: auto;
-}
+/* Header */
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-logo { height: 44px; width: auto; filter: drop-shadow(0 2px 0 #000); }
+.brand-title { font: 800 20px/1 'Bangers', cursive; letter-spacing: 1px; color: #fff; text-shadow: 2px 2px 0 #000; }
+.nav { display: flex; gap: 18px; }
+.nav-link { color: #fff; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 6px 10px; background: #000; border: 2px solid #fff; box-shadow: 4px 4px 0 #ff1a1a; transition: transform .1s; }
+.nav-link:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #ff1a1a; }
 
-/* Основний вміст */
-.content {
-  padding-top: 5px; /* Зменшено верхній відступ */
-}
+/* Panels */
+.panel { position: relative; padding: 64px 0; background: rgba(0,0,0,0.6); border: 3px solid #fff; box-shadow: 10px 10px 0 #ff1a1a; margin: 36px auto; border-radius: 12px; }
+.panel--tight { padding: 40px 0; }
+.panel--slant { clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 92%); }
 
-.container {
-  max-width: 800px; /* Зменшено максимальну ширину контейнера */
-  margin: 0 auto;
-  padding: 10px; /* Зменшено відступи */
-  text-align: center;
-}
+/* Hero */
+.hero-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center; }
+.hero-title { font: 800 48px/1.05 'Bangers', cursive; color: #fff; text-shadow: 4px 4px 0 #000; letter-spacing: 1px; }
+.burst { background: #fff; color: #000; padding: 6px 12px; box-shadow: 6px 6px 0 #ff1a1a; display: inline-block; transform: skew(-6deg); }
+.hero-subtitle { margin-top: 12px; font-size: 18px; color: #f0f0f0; max-width: 48ch; }
+.hero-art { text-align: center; }
+.hero-emblem { width: 80%; max-width: 360px; filter: drop-shadow(0 6px 0 #000); }
 
-/* Кнопка завантаження */
-.download-btn {
-  background: linear-gradient(to right, #0077cc, #003d82);
-  color: #fff;
-  padding: 8px 20px; /* Зменшено розмір кнопки */
-  font-size: 14px; /* Зменшено шрифт */
-  border: none;
-  cursor: pointer;
-  margin: 10px 0; /* Зменшено зовнішній відступ */
-  transition: background 0.3s;
-  border-radius: 3px; /* Зменшено радіус */
-}
+/* Buttons */
+.btn { display: inline-block; border: 3px solid #fff; color: #fff; background: #000; text-decoration: none; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 18px; box-shadow: 6px 6px 0 #ff1a1a; transition: transform .1s, box-shadow .1s; }
+.btn:hover { transform: translate(-3px,-3px); box-shadow: 9px 9px 0 #ff1a1a; }
+.btn-primary { background: linear-gradient(135deg, #ff1a1a, #ff4d4d); }
+.btn-ghost { background: transparent; }
+.btn-xl { font-size: 18px; padding: 14px 22px; }
 
-.download-btn:hover {
-  background: linear-gradient(to right, #005fa3, #002966);
-}
+/* Section title */
+.section-title { font: 800 28px/1.2 'Bangers', cursive; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 18px; text-shadow: 3px 3px 0 #000; }
 
-/* ---------- МОДАЛЬНІ ВІКНА ---------- */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1000;
-}
+/* Progress */
+.progress-wrap { display: grid; gap: 10px; }
+.progress-bar { position: relative; height: 20px; border: 3px solid #fff; background: repeating-linear-gradient(45deg, #000 0 10px, #1a1a1a 10px 20px); box-shadow: inset 0 0 0 3px #000; overflow: hidden; }
+.progress-fill { --p: calc(var(--progress, 0) * 1%); position: absolute; inset: 0; width: var(--p); background: linear-gradient(90deg, #ff1a1a, #ff4d4d); animation: barberpole 1s linear infinite; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  padding: 2px; box-sizing: border-box; }
+.progress-label { font-weight: 800; letter-spacing: .05em; }
+@keyframes barberpole { from { background-position: 0 0; } to { background-position: 40px 0; } }
 
-.modal-content {
-  background-color: #fff;
-  color: #333;
-  margin: 10% auto; /* Зменшено верхній відступ */
-  padding: 10px; /* Зменшено відступи */
-  width: 90%;
-  max-width: 300px; /* Зменшено максимальну ширину */
-  border-radius: 3px;
-}
+/* Team */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.team-card { background: #000; border: 3px solid #fff; border-radius: 10px; box-shadow: 6px 6px 0 #ff1a1a; padding: 14px; display: grid; gap: 8px; }
+.team-name { font-weight: 800; }
+.team-role { color: #ffb3b3; font-weight: 600; }
 
-.close {
-  float: right;
-  font-size: 20px; /* Зменшено розмір */
-  cursor: pointer;
-}
+/* Slider */
+.slider { position: relative; width: 100%; overflow: hidden; border: 3px solid #fff; border-radius: 10px; box-shadow: 6px 6px 0 #ff1a1a; }
+.slide { display: none; width: 100%; height: auto; object-fit: contain; cursor: zoom-in; }
+.slide.active { display: block; }
+.prev, .next { position: absolute; top: 50%; transform: translateY(-50%); background: #000; border: 3px solid #fff; color: #fff; padding: 6px 12px; cursor: pointer; font-weight: 800; box-shadow: 4px 4px 0 #ff1a1a; }
+.prev { left: 8px; }
+.next { right: 8px; }
 
-.close:hover {
-  color: #ff0000;
-}
+/* Socials */
+.social-links { display: flex; justify-content: center; gap: 16px; }
+.social-icon { width: 36px; height: 36px; filter: drop-shadow(0 2px 0 #000); }
 
-.platform-option {
-  display: flex;
-  align-items: center;
-  margin: 5px 0; /* Зменшено відступ */
-  padding: 8px 15px; /* Зменшено розмір */
-  background: linear-gradient(to right, #0077cc, #003d82);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 3px;
-  transition: background 0.3s;
-}
+/* Footer */
+.site-footer { text-align: center; padding: 24px 0; color: #fff; }
 
-.platform-option:hover {
-  background: linear-gradient(to right, #005fa3, #002966);
-}
+/* Modal */
+.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.8); z-index: 1000; }
+.modal-content { background: #111; color: #fff; margin: 10% auto; padding: 16px; width: min(520px, 92vw); border: 3px solid #fff; border-radius: 10px; box-shadow: 8px 8px 0 #ff1a1a; }
+.close { float: right; font-size: 24px; cursor: pointer; }
+.close:hover { color: #ff4d4d; }
+.platform-option { display: flex; align-items: center; gap: 10px; margin: 10px 0; padding: 10px 14px; background: #000; color: #fff; text-decoration: none; border: 3px solid #fff; border-radius: 8px; box-shadow: 6px 6px 0 #ff1a1a; }
+.platform-option:hover { transform: translate(-2px,-2px); }
+.platform-icon { width: 32px; height: 32px; }
 
-.platform-icon {
-  width: 30px; /* Зменшено розмір іконки */
-  height: 30px;
-  margin-right: 5px; /* Зменшено відступ */
-}
+/* Image modal */
+.image-modal { display: none; text-align: center; }
+.modal-image { max-width: 80vw; max-height: 80vh; margin: 20px auto; display: block; object-fit: contain; }
 
-/* ---------- РАМКИ ДЛЯ РОЗДІЛІВ ---------- */
-.frame-slider,
-.frame-credits {
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid #fff; /* Зменшено товщину рамки */
-  border-radius: 5px; /* Зменшено радіус */
-  max-width: 800px; /* Зменшено ширину */
-  width: 100%; /* Адаптивна ширина */
-  margin: 10px auto; /* Зменшено зовнішній відступ */
-  padding: 10px; /* Зменшено внутрішній відступ */
-  box-sizing: border-box;
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero-art { order: -1; }
 }
-
-/* ---------- ГАЛЕРЕЯ (СЕКЦІЯ ЗОБРАЖЕНЬ) ---------- */
-.gallery h2 {
-  margin-bottom: 10px; /* Зменшено відступ */
-  color: #fff;
-  font-size: 18px; /* Зменшено розмір заголовка */
-}
-
-.slider {
-  position: relative;
-  width: 100%; /* Повна ширина */
-  height: auto; /* Автоматична висота */
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.slide {
-  display: none;
-  width: 100%;
-  height: auto; /* Автоматична висота */
-  object-fit: contain;
-  cursor: pointer;
-}
-
-.slide.active {
-  display: block;
-}
-
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  border: none;
-  padding: 5px 10px; /* Зменшено розмір кнопок */
-  cursor: pointer;
-  font-size: 16px; /* Зменшено шрифт */
-}
-
-.prev {
-  left: 5px;
-}
-
-.next {
-  right: 5px;
-}
-
-/* ---------- СЕКЦІЯ "ПРИЧЕТНІ ДО ЛОКАЛІЗАЦІЇ" ---------- */
-.credits h2 {
-  margin-bottom: 10px; /* Зменшено відступ */
-  color: #fff;
-  font-size: 18px; /* Зменшено розмір заголовка */
-}
-
-.credits p {
-  margin: 5px 0; /* Зменшено відступ */
-}
-
-/* ---------- ФУТЕР ---------- */
-footer {
-  color: #fff;
-  margin-top: 10px; /* Зменшено відступ */
-}
-
-footer p {
-  margin: 10px 0; /* Зменшено відступ */
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 10px; /* Зменшено проміжок */
-}
-
-.social-icon {
-  width: 30px; /* Зменшено розмір іконок */
-  height: 30px;
-}
-
-/* ---------- МОДАЛЬНЕ ЗОБРАЖЕННЯ ---------- */
-.modal-image {
-  max-width: 70vw; /* Зменшено максимальну ширину */
-  max-height: 70vh; /* Зменшено максимальну висоту */
-  margin: 20px auto; /* Зменшено відступ */
-  display: block;
-  object-fit: contain;
-  z-index: 1001;
-}
-
-/* ---------- АДАПТИВНІСТЬ ---------- */
-@media (max-width: 800px) {
-  .frame-slider,
-  .frame-credits {
-    width: 90%;
-  }
-  .slider {
-    width: 100%;
-    height: auto;
-  }
-  .slide {
-    height: auto;
-  }
-}
-
-@media (max-width: 600px) {
-  .header {
-    padding: 8px 5px;
-  }
-  .logo {
-    max-width: 200px; /* Ще більше зменшено логотип */
-  }
-  .download-btn {
-    padding: 6px 15px;
-    font-size: 12px;
-  }
-  .platform-icon {
-    width: 25px;
-    height: 25px;
-  }
-  .social-icon {
-    width: 25px;
-    height: 25px;
-  }
-  .gallery h2,
-  .credits h2 {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 400px) {
-  .header {
-    padding: 5px 3px;
-  }
-  .logo {
-    max-width: 150px; /* Максимально компактний логотип */
-  }
-  .download-btn {
-    padding: 5px 10px;
-    font-size: 10px;
-  }
-  .platform-icon {
-    width: 20px;
-    height: 20px;
-  }
-  .social-icon {
-    width: 20px;
-    height: 20px;
-  }
-  .gallery h2,
-  .credits h2 {
-    font-size: 14px;
-  }
+@media (max-width: 520px) {
+  .nav { display: none; }
+  .panel { margin: 20px auto; padding: 36px 0; }
+  .hero-title { font-size: 40px; }
+  .btn-xl { font-size: 16px; }
 }
