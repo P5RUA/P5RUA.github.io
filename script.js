@@ -1,79 +1,108 @@
-// Перевірка IP при завантаженні сторінки
-fetch('http://ip-api.com/json')
-    .then(response => response.json())
-    .then(data => {
-        if (data.countryCode === 'RU') {
-            document.body.innerHTML = '<img src="assets/idi.gif" style="width:100%;height:100%;position:fixed;top:0;left:0;z-index:9999;">';
-        }
-    })
-    .catch(error => {
-        console.error('Помилка при отриманні геолокації:', error);
-        // У разі помилки сайт просто завантажується як є
-    });
+// Utilities
+const $ = (sel, ctx = document) => ctx.querySelector(sel);
+const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
-// Модальне вікно для завантаження
-const downloadBtn = document.getElementById('downloadBtn');
-const platformModal = document.getElementById('platformModal');
-const imageModal = document.getElementById('imageModal');
-const modalImg = document.getElementById('modalImg');
-const closes = document.querySelectorAll('.close');
+// Year in footer
+const yearEl = $('#year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Кнопка "Завантажити"
-downloadBtn.addEventListener('click', () => {
-  platformModal.style.display = 'block';
-});
+// Modal controls
+const downloadBtn = $('#downloadBtn');
+const platformModal = $('#platformModal');
+const imageModal = $('#imageModal');
+const modalImg = $('#modalImg');
+const closes = $$('.close');
 
-// Закриття модальних вікон (платформи та зображення)
-closes.forEach(close => {
-  close.addEventListener('click', () => {
-    platformModal.style.display = 'none';
-    imageModal.style.display = 'none';
-  });
-});
-
-// Слайдер
-const slides = document.querySelectorAll('.slide');
-const prev = document.querySelector('.prev');
-const next = document.querySelector('.next');
-let currentSlide = 0;
-
-// Показати слайд за індексом
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
+if (downloadBtn && platformModal) {
+  downloadBtn.addEventListener('click', () => {
+    platformModal.style.display = 'block';
   });
 }
 
-// Клік на кнопки "←" та "→"
-prev.addEventListener('click', () => {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
+closes.forEach((close) => {
+  close.addEventListener('click', () => {
+    if (platformModal) platformModal.style.display = 'none';
+    if (imageModal) imageModal.style.display = 'none';
+  });
 });
 
-next.addEventListener('click', () => {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-});
+// Progress bar (59%)
+const progressWrap = $('#progress .progress-wrap');
+const progressValue = $('#progressValue');
+if (progressWrap) {
+  const target = Number(progressWrap.getAttribute('data-progress') || '59');
+  const fill = $('.progress-fill', progressWrap);
+  let current = 0;
+  const step = () => {
+    current = Math.min(target, current + 1);
+    if (fill) fill.style.setProperty('--progress', String(current));
+    if (progressValue) progressValue.textContent = `${current}%`;
+    if (current < target) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
 
-// Ініціалізація першого слайду
+// Team data
+const team = [
+  { name: "Дмитро Бидлов", role: "Керівник «Солов'їної команди»" },
+  { name: "Катерина «Kandod» Філіппова", role: "Перекладачка" },
+  { name: "Рустам «Рустя» Ткаченко", role: "Перекладач з японської мови" },
+  { name: "Марія «minnimals» Серебрякова", role: "Перекладачка" },
+  { name: "Микита «Funfy» Захаров", role: "Художник україномовних текстур" },
+  { name: "Марія «Mimotw» Єфіменко", role: "Художниця україномовних шрифтів та текстур" },
+  { name: "Кирило «twentysixz»", role: "Перекладач" },
+  { name: "Назарій «V_Orbit_V» Васильковський", role: "Перекладач" },
+  { name: "Михайло «Eeyeyy1»", role: "Перекладач" },
+  { name: "ralphfinchi", role: "Перекладач та художник текстур" },
+  { name: "та інші", role: "Ще дуже багато причетних" }
+];
+
+// Render team
+const teamGrid = $('#teamGrid');
+if (teamGrid) {
+  const frag = document.createDocumentFragment();
+  team.forEach(({ name, role }) => {
+    const card = document.createElement('article');
+    card.className = 'team-card';
+    card.innerHTML = `
+      <div class="team-name">${name}</div>
+      <div class="team-role">${role}</div>
+    `;
+    frag.appendChild(card);
+  });
+  teamGrid.appendChild(frag);
+}
+
+// Slider
+const slides = $$('.slide');
+const prev = $('.prev');
+const next = $('.next');
+let currentSlide = 0;
+
+const showSlide = (index) => {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+};
+
+if (prev) prev.addEventListener('click', () => { currentSlide = (currentSlide - 1 + slides.length) % slides.length; showSlide(currentSlide); });
+if (next) next.addEventListener('click', () => { currentSlide = (currentSlide + 1) % slides.length; showSlide(currentSlide); });
 showSlide(currentSlide);
 
-// Клік на слайд (відкриття в модальному вікні)
-slides.forEach(slide => {
+// Click to open image modal
+slides.forEach((slide) => {
   slide.addEventListener('click', () => {
+    if (!imageModal || !modalImg) return;
     modalImg.src = slide.src;
     imageModal.style.display = 'block';
   });
 });
 
-// Закриття модального вікна при кліку на зовнішню область або хрестик
-imageModal.addEventListener('click', (e) => {
-  if (e.target === imageModal || e.target.classList.contains('close')) {
-    imageModal.style.display = 'none';
-  }
-});
-
-// Додаткове закриття при кліку безпосередньо на зображення
-modalImg.addEventListener('click', () => {
-  imageModal.style.display = 'none';
-});
+// Close image modal
+if (imageModal) {
+  imageModal.addEventListener('click', (e) => {
+    if (e.target === imageModal || e.target.classList.contains('close')) {
+      imageModal.style.display = 'none';
+    }
+  });
+}
