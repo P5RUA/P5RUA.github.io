@@ -1,0 +1,36 @@
+{
+  "download": {
+    "url": "https://example.com/p5r-ua-early-access.zip",
+    "fileSize": "~250 МБ"
+  },
+  "progress": {
+    "overall": 42,
+    "segments": [
+      { "name": "Інтерфейс та шрифти", "percent": 65 },
+      { "name": "Діалоги (основна історія)", "percent": 48 },
+      { "name": "Соціальні лінки", "percent": 37 },
+      { "name": "Мануал та підказки", "percent": 80 },
+      { "name": "Описи персон та скіллів", "percent": 30 },
+      { "name": "Графіка / текстури", "percent": 20 }
+    ]
+  },
+  "demo": {
+    "youtubeId": "dQw4w9WgXcQ",
+    "images": [
+      "/assets/screen-1.webp",
+      "/assets/screen-2.webp",
+      "/assets/screen-3.webp",
+      "/assets/screen-4.webp",
+      "/assets/screen-5.webp",
+      "/assets/screen-6.webp"
+    ]
+  },
+  "team": [
+    { "role": "Керівництво / Менеджмент", "members": ["Ілля", "Марія"] },
+    { "role": "Перекладачі", "members": ["Орест", "Софія", "Влад", "Роман", "Надія", "Олена"] },
+    { "role": "Редактори", "members": ["Дмитро", "Андрій", "Ксенія"] },
+    { "role": "Локалізація UI / Шрифти", "members": ["Катерина", "Ігор"] },
+    { "role": "Графіка / Текстури", "members": ["Олексій", "Анна"] },
+    { "role": "Тестування", "members": ["Богдан", "Юлія", "Максим"] }
+  ]
+}
