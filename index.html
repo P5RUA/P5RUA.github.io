@@ -13,8 +13,11 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Космічний фон зі зірками -->
+  <!-- P5R багатошаровий фон -->
   <div class="background-gif" aria-hidden="true"></div>
+  <div class="bg-layer bg-halftone" data-parallax="-6" aria-hidden="true"></div>
+  <div class="bg-layer bg-stripes" data-parallax="-3" aria-hidden="true"></div>
+  <div class="bg-layer bg-slash" data-parallax="-9" aria-hidden="true"></div>
 
   <!-- Верхня панель навігації у стилі P5R -->
   <header class="site-header p5r-stripes">
@@ -29,19 +32,30 @@
         <a href="#team" class="nav-link">Команда</a>
         <a href="#gallery" class="nav-link">Галерея</a>
       </nav>
+      <button id="menuToggle" class="nav-toggle" aria-label="Відкрити меню">☰</button>
     </div>
   </header>
 
+  <!-- Мобільне меню -->
+  <nav id="mobileNav" class="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav__inner">
+      <a href="#download" class="mobile-link">Завантажити</a>
+      <a href="#progress" class="mobile-link">Прогрес</a>
+      <a href="#team" class="mobile-link">Команда</a>
+      <a href="#gallery" class="mobile-link">Галерея</a>
+    </div>
+  </nav>
+
   <main class="content">
     <!-- HERO-блок у стилі комікс-панелі P5 -->
-    <section class="hero panel panel--slant" id="download">
+    <section class="hero panel panel--slant panel--royal" id="download">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <h1 class="hero-title"><span class="burst">Persona 5 Royal</span><br />українською!</h1>
+          <h1 class="hero-title hero-title--royal"><span class="burst burst--royal">Persona 5 Royal</span><br />українською!</h1>
           <p class="hero-subtitle">Локалізація від спільноти «Солов'їна команда». Дотепний дух, сміливі кольори та безкомпромісний стиль — як у грі.</p>
           <div class="cta-group">
-            <button id="downloadBtn" class="btn btn-primary btn-xl">Завантажити українізатор</button>
-            <a href="#progress" class="btn btn-ghost">Дивитися прогрес</a>
+            <button id="downloadBtn" class="btn btn-primary btn-royal btn--jagged btn-xl">Завантажити українізатор</button>
+            <a href="#progress" class="btn btn-ghost btn--jagged">Дивитися прогрес</a>
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
@@ -51,12 +65,12 @@
     </section>
 
     <!-- Прогрес -->
-    <section class="panel panel--tight" id="progress">
+    <section class="panel panel--tight panel--royal" id="progress">
       <div class="container">
         <h2 class="section-title">Прогрес локалізації</h2>
         <div class="progress-wrap" data-progress="59">
           <div class="progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="59" role="progressbar">
-            <div class="progress-fill" style="--progress:59;"></div>
+            <div class="progress-fill progress-fill--royal" style="--progress:59;"></div>
           </div>
           <div class="progress-label"><span id="progressValue">59%</span> готово</div>
         </div>
@@ -64,7 +78,7 @@
     </section>
 
     <!-- Команда -->
-    <section class="panel" id="team">
+    <section class="panel panel--royal" id="team">
       <div class="container">
         <h2 class="section-title">Причетні до локалізації</h2>
         <div id="teamGrid" class="team-grid" aria-live="polite"></div>
@@ -72,15 +86,16 @@
     </section>
 
     <!-- Галерея / Слайдер -->
-    <section class="panel panel--slant" id="gallery">
+    <section class="panel panel--slant panel--royal" id="gallery">
       <div class="container">
         <h2 class="section-title">Демонстрація українізатора</h2>
         <div class="slider">
           <img src="assets/photo/1.jpg" alt="Скріншот 1 локалізації" class="slide active" />
           <img src="assets/photo/2.jpg" alt="Скріншот 2 локалізації" class="slide" />
           <img src="assets/photo/3.jpg" alt="Скріншот 3 локалізації" class="slide" />
-          <button class="prev" aria-label="Попереднє зображення">←</button>
-          <button class="next" aria-label="Наступне зображення">→</button>
+          <button class="prev" aria-label="Попереднє зображення">◀</button>
+          <button class="next" aria-label="Наступне зображення">▶</button>
+          <div class="slider-dots" role="tablist" aria-label="Слайди"></div>
         </div>
       </div>
     </section>
