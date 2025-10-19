@@ -16,9 +16,8 @@ function hydrateCTA(){
   const note = $('[data-cta-note]');
   if(!cta || !state.config) return;
   cta.href = state.config.download.url;
-  if(state.config.download.fileSize){
-    note.textContent = `ZIP ~ ${state.config.download.fileSize}`;
-  }
+  // Replace file size text with requested static label
+  note.textContent = 'Версія від 7 жовтня 2025 року';
 }
 
 function setYear(){ $('#year').textContent = new Date().getFullYear(); }
@@ -27,43 +26,41 @@ function hydrateProgress(){
   const { progress } = state.config;
   const overall = Math.max(0, Math.min(100, progress.overall || 0));
   const overallBar = $('#overall-bar');
-  const overallText = $('#overall-percent');
+  const overallLabel = $('#overall-label');
   const segmentsWrap = $('#segments');
   overallBar.style.width = overall + '%';
   overallBar.parentElement.setAttribute('aria-valuenow', String(overall));
-  overallText.textContent = overall + '%';
+  if (overallLabel) {
+    overallLabel.textContent = `Загальний прогрес - ${overall}%`;
+  }
 
-  segmentsWrap.innerHTML = '';
-  (progress.segments || []).forEach(seg => {
-    const item = el('div', 'segment');
-    const head = el('div', 'segment__head');
-    const name = el('span');
-    name.textContent = seg.name;
-    const pct = el('strong');
-    const percent = Math.max(0, Math.min(100, seg.percent || 0));
-    pct.textContent = percent + '%';
-    head.append(name, pct);
-
-    const prog = el('div', 'progress');
-    prog.setAttribute('role', 'progressbar');
-    prog.setAttribute('aria-valuemin', '0');
-    prog.setAttribute('aria-valuemax', '100');
-    prog.setAttribute('aria-valuenow', String(percent));
-    const bar = el('div', 'progress__bar');
-    bar.style.width = percent + '%';
-    const spark = el('span', 'progress__sparkles');
-    bar.append(spark);
-    prog.append(bar);
-
-    item.append(head, prog);
-    segmentsWrap.append(item);
-  });
+  // Hide and clear any per-segment details as requested
+  if (segmentsWrap) segmentsWrap.innerHTML = '';
 }
 
 function hydrateDemo(){
-  const yt = $('#yt-embed');
-  const id = state.config.demo.youtubeId;
-  yt.src = `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&color=white`;
+  // Add requested YouTube demos
+  const videosWrap = $('#videos');
+  if (videosWrap) {
+    const urls = [
+      'https://www.youtube.com/embed/-x3nNYnsQBw',
+      'https://www.youtube.com/embed/XpYJWmeEf1Y',
+      'https://www.youtube.com/embed/Jsgk-KOZWv4'
+    ];
+    urls.forEach(src => {
+      const card = el('div', 'video-card');
+      const frame = el('div', 'video-frame');
+      const iframe = el('iframe', 'yt-embed');
+      iframe.title = 'Демонстраційне відео YouTube';
+      iframe.loading = 'lazy';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      iframe.src = `${src}?rel=0&modestbranding=1&color=white`;
+      frame.append(iframe);
+      card.append(frame);
+      videosWrap.append(card);
+    });
+  }
 
   const gallery = $('#gallery');
   const images = state.config.demo.images || [];

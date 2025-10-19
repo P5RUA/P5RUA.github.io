@@ -21,7 +21,7 @@
     <header class="site-header" role="banner">
       <div class="container header-inner">
         <div class="brand">
-          <span class="brand__logo" aria-hidden="true">★</span>
+          <img class="brand__logo" src="/assets/logo.webp" alt="Логотип" width="28" height="28" decoding="async" />
           <span class="brand__name">Солов'їна команда</span>
         </div>
         <nav class="nav" aria-label="Основна навігація">
@@ -46,8 +46,7 @@
 
           <div class="cta-wrap">
             <a id="cta-download" class="btn btn--gold btn--xl" href="#" target="_blank" rel="noopener" data-cta>
-              <span class="btn__shine" aria-hidden="true"></span>
-              <span class="btn__text">Отримати ранній доступ</span>
+              <span class="btn__text"><span class="btn__shine" aria-hidden="true"></span>Отримати ранній доступ</span>
             </a>
             <p class="cta-note" data-cta-note></p>
           </div>
@@ -62,17 +61,18 @@
 
           <div class="progress-card">
             <div class="progress-card__header">
-              <span>Загальний прогрес</span>
-              <strong id="overall-percent">0%</strong>
+              <span id="overall-label">Загальний прогрес - 0%</span>
             </div>
             <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Загальний прогрес">
               <div class="progress__bar" id="overall-bar">
                 <span class="progress__sparkles" aria-hidden="true"></span>
               </div>
             </div>
+            <div class="progress-counts" aria-label="Лічильники тексту">
+              <div>Англійського тексту (🇺🇸) 242889</div>
+              <div>Українського тексту (🇺🇦) 144151</div>
+            </div>
           </div>
-
-          <div id="segments" class="segments"></div>
         </div>
       </section>
 
@@ -81,11 +81,7 @@
         <div class="container">
           <h2 id="demo-title" class="section__title">Демонстрація</h2>
           <div class="demo-grid">
-            <div class="video-card">
-              <div class="video-frame">
-                <iframe id="yt-embed" class="yt-embed" title="YouTube відео з демонстрацією" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-              </div>
-            </div>
+            <div id="videos" class="videos" aria-label="Відео демонстрації"></div>
             <div class="gallery" id="gallery" aria-label="Галерея зображень"></div>
           </div>
         </div>
