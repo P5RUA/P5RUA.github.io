@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="description" content="Українська локалізація Persona 5 Royal — ранній доступ від Солов'їної команди." />
+    <title>Persona 5 Royal — Українська локалізація</title>
+
+    <!-- Display fonts (lightweight) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Пропустити до вмісту</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <div class="brand">
+          <span class="brand__logo" aria-hidden="true">★</span>
+          <span class="brand__name">Солов'їна команда</span>
+        </div>
+        <nav class="nav" aria-label="Основна навігація">
+          <a href="#download" class="nav__link">Завантажити</a>
+          <a href="#progress" class="nav__link">Прогрес</a>
+          <a href="#demo" class="nav__link">Демонстрація</a>
+          <a href="#team" class="nav__link">Команда</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="site-main">
+      <!-- HERO -->
+      <section class="hero" id="download" aria-label="Отримати ранній доступ">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="container hero__inner">
+          <h1 class="hero__title">
+            Persona 5 Royal<br />
+            <span class="hero__subtitle">Українська локалізація</span>
+          </h1>
+          <p class="hero__tagline">Стильно. Сміливо. Українською.</p>
+
+          <div class="cta-wrap">
+            <a id="cta-download" class="btn btn--gold btn--xl" href="#" target="_blank" rel="noopener" data-cta>
+              <span class="btn__shine" aria-hidden="true"></span>
+              <span class="btn__text">Отримати ранній доступ</span>
+            </a>
+            <p class="cta-note" data-cta-note></p>
+          </div>
+        </div>
+        <div class="hero__stars" aria-hidden="true"></div>
+      </section>
+
+      <!-- PROGRESS -->
+      <section class="section" id="progress" aria-labelledby="progress-title">
+        <div class="container">
+          <h2 id="progress-title" class="section__title">Прогрес локалізації</h2>
+
+          <div class="progress-card">
+            <div class="progress-card__header">
+              <span>Загальний прогрес</span>
+              <strong id="overall-percent">0%</strong>
+            </div>
+            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Загальний прогрес">
+              <div class="progress__bar" id="overall-bar">
+                <span class="progress__sparkles" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+
+          <div id="segments" class="segments"></div>
+        </div>
+      </section>
+
+      <!-- DEMO -->
+      <section class="section" id="demo" aria-labelledby="demo-title">
+        <div class="container">
+          <h2 id="demo-title" class="section__title">Демонстрація</h2>
+          <div class="demo-grid">
+            <div class="video-card">
+              <div class="video-frame">
+                <iframe id="yt-embed" class="yt-embed" title="YouTube відео з демонстрацією" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+            </div>
+            <div class="gallery" id="gallery" aria-label="Галерея зображень"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEAM -->
+      <section class="section" id="team" aria-labelledby="team-title">
+        <div class="container">
+          <h2 id="team-title" class="section__title">Команда</h2>
+          <div id="team-roles" class="team"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Солов'їна команда. Проєкт фанатської локалізації. Persona 5 Royal © ATLUS/SEGA.</p>
+      </div>
+    </footer>
+
+    <script src="/scripts/main.js" type="module"></script>
+  </body>
+</html>

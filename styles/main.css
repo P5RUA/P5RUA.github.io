@@ -1,0 +1,112 @@
+/* ===== Variables ===== */
+:root {
+  --royal-red: #c5162f;
+  --royal-deep-red: #8c0e22;
+  --royal-black: #0a0a0a;
+  --royal-gray: #1a1a1a;
+  --royal-gold: #f5d47a;
+  --royal-gold-2: #caa85a;
+  --royal-white: #ffffff;
+  --max-w: 1120px;
+}
+
+/* ===== Base ===== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--royal-white);
+  background: radial-gradient(1200px 600px at 70% -10%, rgba(245, 212, 122, 0.08), transparent 60%),
+              linear-gradient(180deg, #12090c 0%, #0a0a0a 60%);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.55;
+}
+
+img { max-width: 100%; display: block; }
+
+.container { max-width: var(--max-w); padding: 0 16px; margin: 0 auto; }
+
+.skip-link { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+.skip-link:focus { left: 16px; top: 12px; width: auto; height: auto; padding: 8px 12px; background: var(--royal-gold); color: #000; z-index: 1000; }
+
+/* ===== Header ===== */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(10,10,10,0.75);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.brand { display: flex; gap: 10px; align-items: center; font-weight: 800; letter-spacing: 0.6px; }
+.brand__logo { color: var(--royal-gold); filter: drop-shadow(0 0 8px rgba(245,212,122,0.35)); }
+.brand__name { font-family: "Bebas Neue", system-ui; font-size: 22px; letter-spacing: 1px; }
+.nav { display: none; gap: 18px; }
+.nav__link { color: #eee; text-decoration: none; font-weight: 600; opacity: 0.9; }
+.nav__link:hover { color: var(--royal-gold); }
+@media (min-width: 768px){ .nav { display: flex; } }
+
+/* ===== Hero ===== */
+.hero { position: relative; overflow: hidden; padding: 88px 0 64px; background: linear-gradient(180deg, rgba(197,22,47,0.9) 0%, rgba(10,10,10,0.85) 100%); }
+.hero__bg { position:absolute; inset:0; background:
+  radial-gradient(900px 400px at 15% 10%, rgba(197,22,47,0.8), transparent 60%),
+  linear-gradient(120deg, rgba(197,22,47,0.4), rgba(10,10,10,0.0) 60%),
+  url('/assets/hero.webp') center/cover no-repeat;
+  mix-blend-mode: screen; opacity: 0.9; filter: saturate(1.15) contrast(1.05);
+}
+.hero__inner { position: relative; z-index: 1; }
+.hero__title { font-family: "Bebas Neue", system-ui; font-size: clamp(42px, 7vw, 96px); margin: 0; line-height: 0.9; text-shadow: 0 6px 24px rgba(0,0,0,0.6); }
+.hero__subtitle { font-size: 0.55em; color: var(--royal-gold); letter-spacing: 1px; }
+.hero__tagline { margin: 16px 0 28px; font-size: 18px; opacity: 0.9; }
+
+.cta-wrap { display: inline-flex; flex-direction: column; gap: 10px; }
+.btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-weight: 800; letter-spacing: .3px; }
+.btn--xl { padding: 14px 22px; border-radius: 12px; font-size: 18px; }
+.btn--gold { color: #1a0f04; background: linear-gradient(180deg, #ffe8a6, #f4cf70 50%, #caa85a); box-shadow: 0 8px 24px rgba(245,212,122,0.25), inset 0 1px 0 #fff4cc; }
+.btn--gold:hover { filter: brightness(1.05); transform: translateY(-1px); transition: transform .15s ease, filter .15s ease; }
+.btn__shine { position:absolute; inset:0; background: linear-gradient(60deg, transparent 40%, rgba(255,255,255,0.65) 50%, transparent 60%); transform: translateX(-120%); animation: shine 3.5s infinite ease-in-out; border-radius: inherit; }
+@keyframes shine { 0%{transform:translateX(-120%)} 20%{transform:translateX(120%)} 100%{transform:translateX(120%)} }
+.cta-note { font-size: 12px; opacity: .8; }
+
+.hero__stars { position:absolute; inset:0; pointer-events:none; background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,.35) 0 2px, transparent 3px), radial-gradient(circle at 70% 40%, rgba(255,255,255,.35) 0 2px, transparent 3px), radial-gradient(circle at 30% 80%, rgba(255,255,255,.35) 0 1.5px, transparent 2.5px); background-size: 600px 600px; animation: twinkle 6s linear infinite; opacity: .4; }
+@keyframes twinkle { from{background-position:0 0, 50px 0, 0 50px} to{background-position:600px 600px, 650px 600px, 600px 650px} }
+
+/* ===== Sections ===== */
+.section { padding: 56px 0; background: linear-gradient(180deg, #0a0a0a, #12090c 40%, #0a0a0a); }
+.section__title { font-family: "Bebas Neue", system-ui; font-size: clamp(28px, 5vw, 54px); margin: 0 0 24px; letter-spacing: 1px; }
+
+/* Progress */
+.progress-card { background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 16px; box-shadow: 0 10px 24px rgba(0,0,0,.3); }
+.progress-card__header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px; font-weight: 700; }
+.progress { height: 16px; background: linear-gradient(180deg, #1b1206, #2d210d); border: 1px solid #5d4a21; border-radius: 999px; overflow: hidden; position: relative; }
+.progress__bar { height: 100%; width: 0%; background: linear-gradient(90deg, #a07a2a, #f4cf70, #a07a2a); box-shadow: inset 0 0 6px rgba(0,0,0,.5), 0 4px 16px rgba(245,212,122,.25); position: relative; transition: width .8s cubic-bezier(.2,.6,.2,1); }
+.progress__sparkles { position:absolute; inset:0; background-image: radial-gradient(circle at 10% 50%, rgba(255,255,255,.35) 0 1.5px, transparent 2px), radial-gradient(circle at 30% 30%, rgba(255,255,255,.5) 0 2px, transparent 2.5px), radial-gradient(circle at 60% 60%, rgba(255,255,255,.35) 0 1.5px, transparent 2px); background-size: 120px 40px; animation: spark 2.5s linear infinite; mix-blend-mode: screen; }
+@keyframes spark { from { background-position: 0 0; } to { background-position: 120px 0; } }
+.segments { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
+.segment { display: grid; gap: 8px; }
+.segment__head { display: flex; align-items: baseline; justify-content: space-between; font-size: 14px; opacity: .9; }
+@media (min-width: 720px) { .segments { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (min-width: 1024px) { .segments { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+
+/* Demo */
+.demo-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.video-card { border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); }
+.video-frame { position: relative; width: 100%; padding-top: 56.25%; }
+.yt-embed { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+.gallery__item { border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); aspect-ratio: 16 / 9; position: relative; background: #0f0f0f; }
+.gallery__item img { width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 880px) { .demo-grid { grid-template-columns: 1.4fr 1fr; } .gallery { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; } }
+
+/* Team */
+.team { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.role { background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 14px; }
+.role__title { font-weight: 800; color: var(--royal-gold); margin: 0 0 8px; letter-spacing: .4px; }
+.member-list { display: flex; flex-wrap: wrap; gap: 8px 12px; }
+.member { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 6px 10px; font-size: 14px; }
+@media (min-width: 720px) { .team { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (min-width: 1120px) { .team { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+
+/* Footer */
+.site-footer { border-top: 1px solid rgba(255,255,255,0.08); background: #0a0a0a; padding: 24px 0; font-size: 14px; opacity: .9; }
+.footer-inner { text-align: center; }
