@@ -60,7 +60,7 @@ img { max-width: 100%; display: block; }
 .hero__tagline { margin: 16px 0 28px; font-size: 18px; opacity: 0.9; }
 
 .cta-wrap { display: inline-flex; flex-direction: column; gap: 10px; }
-.btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-weight: 800; letter-spacing: .3px; }
+.btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-weight: 800; letter-spacing: .3px; overflow: hidden; isolation: isolate; }
 .btn--xl { padding: 14px 22px; border-radius: 12px; font-size: 18px; }
 .btn--gold { color: #1a0f04; background: linear-gradient(180deg, #ffe8a6, #f4cf70 50%, #caa85a); box-shadow: 0 8px 24px rgba(245,212,122,0.25), inset 0 1px 0 #fff4cc; }
 .btn--gold:hover { filter: brightness(1.05); transform: translateY(-1px); transition: transform .15s ease, filter .15s ease; }
