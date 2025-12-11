@@ -17,7 +17,7 @@ function hydrateCTA(){
   if(!cta || !state.config) return;
   cta.href = state.config.download.url;
   // Replace file size text with requested static label
-  note.textContent = 'Версія від 7 жовтня 2025 року';
+  note.textContent = 'Версія від 11 грудня 2025 року';
 }
 
 function setYear(){ $('#year').textContent = new Date().getFullYear(); }
