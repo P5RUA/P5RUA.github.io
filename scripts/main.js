@@ -6,7 +6,7 @@ function $(sel, parent = document){ return parent.querySelector(sel); }
 function el(tag, cls){ const e = document.createElement(tag); if(cls) e.className = cls; return e; }
 
 async function loadConfig(){
-  const res = await fetch('/data/config.json', { cache: 'no-cache' });
+  const res = await fetch('data/config.json', { cache: 'no-cache' });
   if(!res.ok) throw new Error('Не вдалось завантажити конфіг.');
   state.config = await res.json();
 }
